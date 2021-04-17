@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
 import { Container } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => (
     <Container fluid>
@@ -9,43 +9,51 @@ const NavBar = () => (
                 <div className="site_container">
                     <div className="navbar-header">
                         {' '}
-                        <a
-                            href="/"
+                        <Link
+                            to="/"
                             className="logo_name navbar-brand s123-w-l-s page-unique s123-fast-page-load logoStyle_19"
                         >
                             <span className="website-name">Loan-Acc</span>
-                        </a>{' '}
+                        </Link>{' '}
                     </div>
                     <div id="top-menu">
                         <ul className="navPages nav navbar-nav">
                             <li className="moduleMenu active">
-                                <a
+                                <NavLink
                                     className="page-unique homepageMenu s123-fast-page-load"
-                                    href="/"
+                                    to="/"
                                 >
                                     <span className="txt-container">Home</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5fe2922785581">
-                                <a className="page-unique s123-fast-page-load" href="services">
+                                <NavLink to="/services" className="page-unique s123-fast-page-load">
                                     <span className="txt-container">Services</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="602ca1383e7e0">
-                                <a
+                                <NavLink
+                                    to="/2021-sba-loans"
                                     className="page-unique s123-fast-page-load"
-                                    href="2021-sba-loans"
                                 >
                                     <span className="txt-container">2021 SBA LOANS</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
-                                <a
+                                <NavLink
                                     className="page-unique s123-fast-page-load"
-                                    href="business-loan-application-1"
+                                    to="/business-loan-application-1"
                                 >
-                                    <span className="txt-container">BUSINESS LOAN APPLICATION</span>
-                                </a>
+                                    <span className="txt-container">BUSINESS LOAN</span>
+                                </NavLink>
+                            </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink
+                                    className="page-unique s123-fast-page-load"
+                                    to="/be-an-agent"
+                                >
+                                    <span className="txt-container">BE AN AGENT</span>
+                                </NavLink>
                             </li>
                         </ul>
                         <ul className="navActions nav navbar-nav">
