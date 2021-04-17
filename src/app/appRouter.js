@@ -10,6 +10,7 @@ import Services from '../Components/Services/Services';
 import SRLogin from '../Components/SRLogin/SRLogin';
 import SRPanel from '../Components/SRPanel/SRPanel';
 import SRRegistration from '../Components/SRRegistration/SRRegistration';
+import BeAnAgentSection from '../pages/BeAnAgentSection';
 
 const AppRouter = () => (
     <>
@@ -42,6 +43,9 @@ const AppRouter = () => (
                 </Route>
                 <Route path="/sr-panel">
                     <SRPanel />
+                </Route>
+                <Route path="/be-an-agent">
+                    <BeAnAgentSection />
                 </Route>
             </Switch>
             <Footer />
