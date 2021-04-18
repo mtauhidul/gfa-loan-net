@@ -6,6 +6,7 @@ const AdminAuth = () => {
     const adminContainer = {
         margin: '4rem auto',
     };
+    const adminRowStyle = { display: 'flex', justifyContent: 'center', alignItems: 'center' };
     const beAnAgentHead = {
         paddingBottom: '30px',
         fontSize: '38px',
@@ -103,10 +104,7 @@ const AdminAuth = () => {
     );
     return (
         <Container style={adminContainer}>
-            <Row
-                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                className="mt-5 "
-            >
+            <Row style={adminRowStyle} className="mt-5 ">
                 {renderHookForm()}
             </Row>
         </Container>
