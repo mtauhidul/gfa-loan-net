@@ -1,24 +1,42 @@
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import dataofUS from '../../assets/data';
 
 const BeAnAgent = () => {
+    // styles
+    const beAnAgentHead = {
+        lineHeight: '21px',
+        paddingTop: '40px',
+        paddingBottom: '60px',
+        borderRadius: '15px',
+        fontSize: '38px',
+        fontWeight: '700',
+        background: '#f3f5f0',
+    };
+    const formSectionSTyles = {
+        marginTop: '6rem',
+        marginLeft: 'auto !important',
+        padding: '2rem',
+        boxShadow: '1px 1px 9px gray',
+    };
     // render form
-
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        // setRequest(true);
-        // setOrderData(data);
         reset();
     };
     const renderHookForm = () => (
-        <Col md={{ span: 6, offset: 1 }}>
+        <Col style={formSectionSTyles} className="ml-auto" md={{ span: 8, offset: 2 }}>
+            <h2 style={beAnAgentHead} className="text-center">
+                Be An Agent
+            </h2>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group controlId="name">
+                    <Form.Label>ENTER YOUR NAME *</Form.Label>
                     <Form.Control
                         type="text"
                         name="name"
-                        placeholder="*Name"
+                        placeholder="name"
                         ref={register({ required: true })}
                     />
                     {errors.name && (
@@ -27,10 +45,11 @@ const BeAnAgent = () => {
                 </Form.Group>
 
                 <Form.Group controlId="email">
+                    <Form.Label>ENTER YOUR EMAIL*</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="email"
                         name="email"
-                        placeholder="*Email Address"
+                        placeholder="eg: example@example.com"
                         ref={register({
                             required: true,
                             pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -43,10 +62,11 @@ const BeAnAgent = () => {
                     )}
                 </Form.Group>
                 <Form.Group controlId="phoneNumber">
+                    <Form.Label>ENTER PHONE NUMBER *</Form.Label>
                     <Form.Control
                         type="phone"
                         name="phoneNumber"
-                        placeholder="*Phone Number"
+                        placeholder="eg: +976-000000"
                         ref={register({ required: true })}
                     />
                     {errors.phoneNumber && (
@@ -56,65 +76,70 @@ const BeAnAgent = () => {
                     )}
                 </Form.Group>
                 <Row>
-                    <Col>
+                    <Col md={6}>
                         {' '}
-                        <Form.Group controlId="street">
+                        <Form.Group controlId="address">
+                            <Form.Label>ENTER YOUR ADDRESS *</Form.Label>
                             <Form.Control
-                                type="text"
-                                name="street"
-                                placeholder="*Street"
+                                type="address"
+                                name="address"
+                                placeholder="address"
                                 ref={register({ required: true })}
                             />
-                            {errors.street && (
+                            {errors.address && (
                                 <small className="text-danger form-text">
-                                    Please enter a valid street
+                                    Please enter a valid address
                                 </small>
                             )}
                         </Form.Group>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                         {' '}
-                        <Form.Group controlId="phoneNumber">
+                        <Form.Group controlId="state">
+                            <Form.Label>SELECT YOUR STATE</Form.Label>
                             <Form.Control
-                                type="text"
-                                name="floor"
-                                placeholder="Apt/Floor No."
-                                ref={register({ required: false })}
-                            />
+                                as="select"
+                                name="state"
+                                placeholder="STATE*"
+                                ref={register({ required: true })}
+                            >
+                                {dataofUS &&
+                                    dataofUS.map((country) => (
+                                        <option key={country.abbreviation}>
+                                            {country.abbreviation}
+                                        </option>
+                                    ))}
+                            </Form.Control>
+                            {errors.state && (
+                                <small className="text-danger form-text">
+                                    Please enter your state
+                                </small>
+                            )}
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col md={12}>
                         {' '}
-                        <Form.Group controlId="city">
+                        <Form.Group controlId="zipcode">
+                            <Form.Label>ENTER YOUR ZIP-CODE *</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="city"
-                                placeholder="*City"
+                                name="zipcode"
+                                placeholder="ZIP CODE *"
                                 ref={register({ required: true })}
                             />
-                            {errors.city && (
+                            {errors.zipcode && (
                                 <small className="text-danger form-text">
-                                    Please enter your city
+                                    Please enter your ZIpcode
                                 </small>
                             )}
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        {' '}
-                        <Form.Group controlId="state">
-                            <Form.Control
-                                type="text"
-                                name="state"
-                                placeholder="State"
-                                ref={register({ required: false })}
-                            />
                         </Form.Group>
                     </Col>
                 </Row>
 
                 <Form.Group controlId="message">
+                    <Form.Label>ENTER YOUR MESSAGE(optional)</Form.Label>
                     <Form.Control
                         as="textarea"
                         name="message"
@@ -123,6 +148,11 @@ const BeAnAgent = () => {
                     />
                 </Form.Group>
                 <small className="text-muted">*Required Info</small>
+
+                <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Terms & Conditions " />
+                </Form.Group>
+
                 <Button className="bd-dark" block type="submit">
                     Register
                 </Button>
@@ -131,9 +161,7 @@ const BeAnAgent = () => {
     );
     return (
         <Container>
-            <Row className="mt-5">
-                <Col className="mt-5">{renderHookForm()}</Col>
-            </Row>
+            <Row className="mt-5 text-center ">{renderHookForm()}</Row>
         </Container>
     );
 };
