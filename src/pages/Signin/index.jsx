@@ -5,7 +5,7 @@ const Signin = () => {
     // styles
     const agentDashboardLogin = {
         padding: '15px',
-        background: '#36ad99',
+        background: '#F2F3F3',
         borderRadius: '16px',
         marginBottom: '15px',
     };
@@ -17,9 +17,12 @@ const Signin = () => {
     };
     const formSectionStyles = {
         marginTop: '6rem',
-        marginLeft: `auto`,
+        marginLeft: `0 auto !important`,
         padding: '2rem',
         boxShadow: '1px 1px 9px gray',
+        marginBottom: '170px',
+        width: '95%',
+        maxWidth: 'calc(800px*3/4)',
     };
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
@@ -31,9 +34,9 @@ const Signin = () => {
         <Col style={formSectionStyles} className="ml-auto" md={{ span: 8, offset: 2 }}>
             <div style={agentDashboardLogin}>
                 <h2 style={beAnAgentHead} className="text-center">
-                    Agent Dashboard Login
+                    Agent Login
                 </h2>
-                <p style={{ fontWeight: '700' }} className="text-danger">
+                <p style={{ fontWeight: '700' }} className="text-danger text-center">
                     *any unauthorized login strongly prohibited
                 </p>
             </div>
@@ -97,7 +100,12 @@ const Signin = () => {
     );
     return (
         <Container>
-            <Row className="mt-5 text-center ">{renderHookForm()}</Row>
+            <Row
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                className="mt-5 "
+            >
+                {renderHookForm()}
+            </Row>
         </Container>
     );
 };

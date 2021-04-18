@@ -15,9 +15,11 @@ const BeAnAgent = () => {
     };
     const formSectionSTyles = {
         marginTop: '6rem',
-        marginLeft: 'auto !important',
+        marginLeft: '0 auto !important',
         padding: '2rem',
         boxShadow: '1px 1px 9px gray',
+        width: '95%',
+        maxWidth: 'calc(800px*3/4)',
     };
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
@@ -161,7 +163,12 @@ const BeAnAgent = () => {
     );
     return (
         <Container>
-            <Row className="mt-5 text-center ">{renderHookForm()}</Row>
+            <Row
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                className="mt-5 "
+            >
+                {renderHookForm()}
+            </Row>
         </Container>
     );
 };

@@ -10,7 +10,6 @@ import SbaLoan from '../Components/SbaLoan/SbaLoan';
 import Services from '../Components/Services/Services';
 import SRLogin from '../Components/SRLogin/SRLogin';
 import SRPanel from '../Components/SRPanel/SRPanel';
-import SRRegistration from '../Components/SRRegistration/SRRegistration';
 import BeAnAgentSection from '../pages/BeAnAgentSection';
 import Signin from '../pages/Signin';
 
@@ -36,9 +35,6 @@ const AppRouter = () => (
                 </Route>
                 <Route path="/admin-panel">
                     <AdminPanel />
-                </Route>
-                <Route path="/sr-registration">
-                    <SRRegistration />
                 </Route>
                 <Route path="/sr-login">
                     <SRLogin />

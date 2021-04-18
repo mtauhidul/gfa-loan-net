@@ -1,6 +1,5 @@
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import dataImage from '../../assets/images';
 
 const AdminAuth = () => {
     // styles
@@ -14,24 +13,20 @@ const AdminAuth = () => {
     };
     const formSectionStyles = {
         marginTop: '6rem',
-        marginLeft: `auto`,
+        marginLeft: `0 auto !important`,
         padding: '2rem',
         boxShadow: '1px 1px 9px gray',
+
+        width: '95%',
+        maxWidth: 'calc(800px*3/4)',
     };
     const adminDashboardLogin = {
         padding: '15px',
-        background: '#36ad73',
+        background: '#F2F3F3',
         borderRadius: '16px',
         marginBottom: '15px',
     };
 
-    const adminAuthImageStyle = {
-        marginTop: '10rem',
-        width: '100%',
-        height: 'auto',
-        alignItems: 'center',
-        textAlign: 'center',
-    };
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
@@ -44,7 +39,7 @@ const AdminAuth = () => {
                 <h2 style={beAnAgentHead} className="text-center">
                     Admin Dashboard Login
                 </h2>
-                <p style={{ fontWeight: '700' }} className="text-danger">
+                <p style={{ fontWeight: '700' }} className="text-danger text-center">
                     *any unauthorized login strongly prohibited
                 </p>
             </div>
@@ -108,17 +103,11 @@ const AdminAuth = () => {
     );
     return (
         <Container style={adminContainer}>
-            <Row className="mt-5 text-center ">
+            <Row
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                className="mt-5 "
+            >
                 {renderHookForm()}
-                <Col sm={{ order: 1 }} md={6}>
-                    <img
-                        style={adminAuthImageStyle}
-                        src={dataImage.authImg}
-                        width="100%"
-                        alt=""
-                        srcSet=""
-                    />
-                </Col>
             </Row>
         </Container>
     );
