@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AdminAuth from '../Components/AdminAuth';
 import AdminLogin from '../Components/AdminLogin/AdminLogin';
 import AdminPanel from '../Components/AdminPanel/AdminPanel';
 import BusinessLoan from '../Components/BusinessLoan/BusinessLoan';
@@ -11,6 +12,7 @@ import SRLogin from '../Components/SRLogin/SRLogin';
 import SRPanel from '../Components/SRPanel/SRPanel';
 import SRRegistration from '../Components/SRRegistration/SRRegistration';
 import BeAnAgentSection from '../pages/BeAnAgentSection';
+import Signin from '../pages/Signin';
 
 const AppRouter = () => (
     <>
@@ -46,6 +48,12 @@ const AppRouter = () => (
                 </Route>
                 <Route path="/be-an-agent">
                     <BeAnAgentSection />
+                </Route>
+                <Route path="/signin">
+                    <Signin />
+                </Route>
+                <Route path="/admin">
+                    <AdminAuth />
                 </Route>
             </Switch>
             <Footer />

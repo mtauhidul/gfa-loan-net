@@ -55,6 +55,16 @@ const NavBar = () => (
                                     <span className="txt-container">BE AN AGENT</span>
                                 </NavLink>
                             </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink className="page-unique s123-fast-page-load" to="/signin">
+                                    <span className="txt-container">Signin</span>
+                                </NavLink>
+                            </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink className="page-unique s123-fast-page-load" to="/admin">
+                                    <span className="txt-container">Admin</span>
+                                </NavLink>
+                            </li>
                         </ul>
                         <ul className="navActions nav navbar-nav">
                             {/* Multi Currency */}
