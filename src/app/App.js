@@ -6,9 +6,9 @@ export const UserContext = createContext();
 function App() {
     const [loggedInUser, setLoggedInUser] = useState({});
     return (
-        <UserContext value={[loggedInUser, setLoggedInUser]}>
+        <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
             <AppRouter />
-        </UserContext>
+        </UserContext.Provider>
     );
 }
 
