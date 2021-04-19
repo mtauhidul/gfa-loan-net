@@ -5,7 +5,6 @@ const Signin = () => {
     // styles
     const agentDashboardLogin = {
         padding: '15px',
-        background: '#F2F3F3',
         borderRadius: '16px',
         marginBottom: '15px',
     };
