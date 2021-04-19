@@ -1,11 +1,14 @@
 import { createContext, useState } from 'react';
-import AppRouter from './appRouter';
+import AppRouter from './AppRouter';
 
-export const UserContext = createContext();
+export const ApplicationContext = createContext();
 
 function App() {
-    const [loggedInUser, setLoggedInUser] = useState({});
+    const [loggedInApplication, setLoggedInApplication] = useState({});
     return (
+<ApplicationContext.Provider value={[loggedInApplication, setLoggedInApplication]}>
+            <AppRouter />
+</ApplicationContext.Provider>
         <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
             <AppRouter />
         </UserContext.Provider>

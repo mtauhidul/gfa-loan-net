@@ -8,7 +8,7 @@ const AdminAuth = () => {
     };
     const adminRowStyle = { display: 'flex', justifyContent: 'center', alignItems: 'center' };
     const beAnAgentHead = {
-        paddingBottom: '30px',
+        paddingBottom: '20px',
         fontSize: '38px',
         fontWeight: '700',
     };
@@ -22,8 +22,7 @@ const AdminAuth = () => {
         maxWidth: 'calc(800px*3/4)',
     };
     const adminDashboardLogin = {
-        padding: '15px',
-        background: '#F2F3F3',
+        padding: '10px',
         borderRadius: '16px',
         marginBottom: '15px',
     };
@@ -63,7 +62,7 @@ const AdminAuth = () => {
                     )}
                 </Form.Group>
                 <Form.Group controlId="phoneNumber">
-                    <Form.Label>ENTER YOUR PHONE NUMBER*</Form.Label>
+                    <Form.Label>ENTER PHONE NUMBER*</Form.Label>
                     <Form.Control
                         type="phone"
                         name="phoneNumber"
@@ -71,9 +70,7 @@ const AdminAuth = () => {
                         ref={register({ required: true })}
                     />
                     {errors.phoneNumber && (
-                        <small className="text-danger form-text">
-                            Please enter a valid Phone Number
-                        </small>
+                        <small className="text-danger form-text">Enter a valid Phone Number</small>
                     )}
                 </Form.Group>
                 <Row>
@@ -96,7 +93,7 @@ const AdminAuth = () => {
                     </Col>
                 </Row>
                 <small className="text-muted">*Required Info</small>
-                <Button className="bd-dark" block type="submit">
+                <Button style={{ marginTop: '15px' }} className="bd-dark" block type="submit">
                     Register
                 </Button>
             </Form>

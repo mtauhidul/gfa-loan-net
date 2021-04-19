@@ -57,7 +57,7 @@ const NavBar = () => (
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
                                 <NavLink className="page-unique s123-fast-page-load" to="/signin">
-                                    <span className="txt-container">Signin</span>
+                                    <span className="txt-container">Agent Login</span>
                                 </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
@@ -65,105 +65,6 @@ const NavBar = () => (
                                     <span className="txt-container">Admin</span>
                                 </NavLink>
                             </li>
-                        </ul>
-                        <ul className="navActions nav navbar-nav">
-                            {/* Multi Currency */}
-                            {/* Cart */}
-                            <li className="header-cart-wrapper orderOpenCart ">
-                                <a
-                                    className="actionButton btn-primary-action-button-4"
-                                    role="button"
-                                >
-                                    <i
-                                        className="svg-m s123-icon-converter "
-                                        data-icon-name="shopping-cart"
-                                        style={{
-                                            mask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/shopping-cart.svg?v=2")',
-                                            WebkitMask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/shopping-cart.svg?v=2")',
-                                        }}
-                                        data-ie11-classes
-                                    >
-                                        &nbsp;
-                                    </i>
-                                    <span className="count" />
-                                </a>
-                            </li>
-                            {/* Show Header Email With Style */}
-                            <li className="header-email-wrapper" data-style={1}>
-                                <a
-                                    data-close-location="right"
-                                    className="actionButton"
-                                    role="button"
-                                    data-container="body"
-                                    data-toggle="email_menuCallActionIcons"
-                                >
-                                    <i
-                                        className="svg-m s123-icon-converter "
-                                        data-icon-name="envelope"
-                                        style={{
-                                            mask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/envelope.svg?v=2")',
-                                            WebkitMask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/envelope.svg?v=2")',
-                                        }}
-                                        data-ie11-classes
-                                    >
-                                        &nbsp;
-                                    </i>
-                                </a>
-                            </li>{' '}
-                            {/* Only icon */}
-                            <li className="header-phone-wrapper" data-style={1}>
-                                {' '}
-                                <a
-                                    data-close-location="right"
-                                    className="actionButton"
-                                    role="button"
-                                    data-container="body"
-                                    data-toggle="phone_menuCallActionIcons"
-                                >
-                                    {' '}
-                                    <i
-                                        className="svg-m s123-icon-converter fa fa-phone"
-                                        data-icon-name="phone"
-                                        style={{
-                                            mask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/phone.svg?v=2")',
-                                            WebkitMask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/phone.svg?v=2")',
-                                        }}
-                                        data-ie11-classes="fa fa-phone"
-                                    >
-                                        &nbsp;
-                                    </i>{' '}
-                                </a>{' '}
-                            </li>{' '}
-                            {/* Only Phone */}
-                            {/* Client Zone */}
-                            <li className="header-client-zone-wrapper">
-                                <a
-                                    className="client-zone-link"
-                                    data-close-location="right"
-                                    href="index4cd7?clientZone=1"
-                                >
-                                    <i
-                                        className="svg-m s123-icon-converter "
-                                        data-icon-name="user"
-                                        style={{
-                                            mask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/user.svg?v=2")',
-                                            WebkitMask:
-                                                'url("https://static.s123-cdn.com/ready_uploads/svg/user.svg?v=2")',
-                                        }}
-                                        data-ie11-classes
-                                    >
-                                        &nbsp;
-                                    </i>
-                                </a>
-                            </li>{' '}
-                            {/* Menu Action Buttons */}
                         </ul>
                     </div>
                 </div>
