@@ -6,20 +6,20 @@ const BeAnAgent = () => {
     // styles
     const beAnAgentHead = {
         lineHeight: '21px',
-        paddingTop: '40px',
-        paddingBottom: '60px',
+        paddingTop: '20px',
+        paddingBottom: '30px',
         borderRadius: '15px',
         fontSize: '38px',
         fontWeight: '700',
-        background: '#f3f5f0',
     };
-    const formSectionSTyles = {
-        marginTop: '6rem',
+    const formSectionStyles = {
+        marginTop: '10rem',
         marginLeft: '0 auto !important',
         padding: '2rem',
         boxShadow: '1px 1px 9px gray',
         width: '95%',
         maxWidth: 'calc(800px*3/4)',
+        marginBottom: '100px',
     };
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
@@ -28,7 +28,7 @@ const BeAnAgent = () => {
         reset();
     };
     const renderHookForm = () => (
-        <Col style={formSectionSTyles} className="ml-auto" md={{ span: 8, offset: 2 }}>
+        <Col style={formSectionStyles} className="ml-auto" md={{ span: 8, offset: 2 }}>
             <h2 style={beAnAgentHead} className="text-center">
                 Be An Agent
             </h2>
@@ -152,7 +152,16 @@ const BeAnAgent = () => {
                 <small className="text-muted">*Required Info</small>
 
                 <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Terms & Conditions " />
+                    <Form.Check
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            height: '50px',
+                        }}
+                        type="checkbox"
+                        label="Terms & Conditions "
+                    />
                 </Form.Group>
 
                 <Button className="bd-dark" block type="submit">

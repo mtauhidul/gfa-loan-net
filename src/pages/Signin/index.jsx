@@ -11,16 +11,16 @@ const Signin = () => {
     };
     const beAnAgentHead = {
         lineHeight: '21px',
-        paddingBottom: '30px',
+        paddingBottom: '20px',
         fontSize: '38px',
         fontWeight: '700',
     };
     const formSectionStyles = {
-        marginTop: '6rem',
+        marginTop: '9rem',
         marginLeft: `0 auto !important`,
-        padding: '2rem',
+        padding: '3rem',
         boxShadow: '1px 1px 9px gray',
-        marginBottom: '170px',
+        marginBottom: '80px',
         width: '95%',
         maxWidth: 'calc(800px*3/4)',
     };
@@ -59,7 +59,7 @@ const Signin = () => {
                     )}
                 </Form.Group>
                 <Form.Group controlId="phoneNumber">
-                    <Form.Label>ENTER YOUR PHONE NUMBER*</Form.Label>
+                    <Form.Label>ENTER PHONE NUMBER*</Form.Label>
                     <Form.Control
                         type="phone"
                         name="phoneNumber"
@@ -67,9 +67,7 @@ const Signin = () => {
                         ref={register({ required: true })}
                     />
                     {errors.phoneNumber && (
-                        <small className="text-danger form-text">
-                            Please enter a valid Phone Number
-                        </small>
+                        <small className="text-danger form-text">Enter a valid Phone Number</small>
                     )}
                 </Form.Group>
                 <Row>
@@ -92,7 +90,7 @@ const Signin = () => {
                     </Col>
                 </Row>
                 <small className="text-muted">*Required Info</small>
-                <Button className="bd-dark" block type="submit">
+                <Button style={{ marginTop: '15px' }} className="bd-dark" block type="submit">
                     Register
                 </Button>
             </Form>

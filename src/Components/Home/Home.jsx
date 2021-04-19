@@ -26,7 +26,7 @@ const Home = () => (
                                                     id="home_siteSlogan"
                                                     className=" weight700   background10 0 16"
                                                 >
-                                                    Loan-Account Network
+                                                    US Loan Applications
                                                 </h1>
                                                 <h2
                                                     id="home_siteSlogan_2"
@@ -45,35 +45,7 @@ const Home = () => (
                                                 className="homepage_goal space_from_bottom_mainGoal ele_align_center"
                                                 style={{ position: 'relative', maxWidth: '100%' }}
                                                 data-type="buttons"
-                                            >
-                                                <div className="promoButtons align_center">
-                                                    <a
-                                                        id="home_buttonText"
-                                                        className="btn btn-primary btn-xl  w-helper"
-                                                        onClick="MoveFirstSection(1);"
-                                                    >
-                                                        <span className="h-b-container">
-                                                            <span className="h-b-t">
-                                                                <span className="h-b-t">
-                                                                    Start here
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                                    </a>
-                                                    <a
-                                                        id="home_buttonText_1"
-                                                        className="btn btn-primary btn-xl  w-helper"
-                                                        style={{ display: 'none' }}
-                                                        onClick="MoveFirstSection(1);"
-                                                    >
-                                                        <span className="h-b-container">
-                                                            <span className="h-b-t">
-                                                                <span className="h-b-t" />
-                                                            </span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +93,7 @@ const Home = () => (
                                 data-aos="fade-up"
                                 className="container-fluid page_header_style page_header_style_"
                             >
-                                <div className="row">
+                                <div style={{ marginTop: '150px' }} className="row">
                                     <div className="container">
                                         <div className="row modulesTitle">
                                             <div className="col-xs-12 text-center">
@@ -194,7 +166,7 @@ const Home = () => (
                                 data-aos="fade-up"
                                 className="container-fluid page_header_style page_header_style_"
                             >
-                                <div className="row">
+                                <div style={{ marginTop: '150px' }} className="row">
                                     <div className="container">
                                         <div className="row modulesTitle">
                                             <div className="col-xs-12 text-center">
@@ -454,6 +426,7 @@ const Home = () => (
                         </section>
 
                         <section
+                            style={{ paddingTop: '200px' }}
                             id="section-5d0a0f53588b1"
                             className="s123-module s123-module-services layout-3 bg-primary"
                             data-module-id="5d0a0f53588b1"
@@ -838,6 +811,7 @@ const Home = () => (
                             </div>
                         </section>
                         <section
+                            style={{ paddingTop: '150px', paddingBottom: '150px' }}
                             id="section-603048d947d7f"
                             className="s123-module s123-module-contact layout-7"
                             data-module-id="603048d947d7f"
