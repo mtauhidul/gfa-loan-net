@@ -27,7 +27,7 @@ function AdminPanel() {
             >
                 <h1 style={{ fontWeight: 'bold', fontSize: '52px', marginTop: '70px' }}>Admin</h1>
             </Container>
-            <Admin dataProvider={restProvider('http://localhost:3000')}>
+            <Admin dataProvider={restProvider('http://localhost:8000/secret')}>
                 <Resource name="Agents" list={AgentList} create={AgentCreate} edit={AgentEdit} />
                 <Resource
                     name="Applications"
