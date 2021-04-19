@@ -13,7 +13,7 @@ const NavBar = () => (
                             to="/"
                             className="logo_name navbar-brand s123-w-l-s page-unique s123-fast-page-load logoStyle_19"
                         >
-                            <span className="website-name">Loan-Acc</span>
+                            <span className="website-name">US Loan Applications</span>
                         </Link>{' '}
                     </div>
                     <div id="top-menu">
@@ -56,12 +56,18 @@ const NavBar = () => (
                                 </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
-                                <NavLink className="page-unique s123-fast-page-load" to="/signin">
-                                    <span className="txt-container">Agent Login</span>
+                                <NavLink
+                                    className="page-unique s123-fast-page-load"
+                                    to="/agent-dashboard"
+                                >
+                                    <span className="txt-container">Agent</span>
                                 </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
-                                <NavLink className="page-unique s123-fast-page-load" to="/admin">
+                                <NavLink
+                                    className="page-unique s123-fast-page-load"
+                                    to="/admin-panel"
+                                >
                                     <span className="txt-container">Admin</span>
                                 </NavLink>
                             </li>

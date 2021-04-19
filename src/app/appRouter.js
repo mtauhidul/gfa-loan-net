@@ -11,6 +11,8 @@ import SbaLoan from '../Components/SbaLoan/SbaLoan';
 import Services from '../Components/Services/Services';
 import BeAnAgentSection from '../pages/BeAnAgentSection';
 import Signin from '../pages/Signin';
+import AdminRoute from './AdminRoute';
+import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => (
     <>
@@ -29,12 +31,12 @@ const AppRouter = () => (
                 <Route path="/services">
                     <Services />
                 </Route>
-                <Route path="/admin-panel">
+                <AdminRoute path="/admin-panel">
                     <AdminPanel />
-                </Route>
-                <Route path="/agent-dashboard">
+                </AdminRoute>
+                <PrivateRoute path="/agent-dashboard">
                     <AgentPanel />
-                </Route>
+                </PrivateRoute>
                 <Route path="/be-an-agent">
                     <BeAnAgentSection />
                 </Route>

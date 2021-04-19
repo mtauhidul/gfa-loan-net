@@ -73,7 +73,7 @@ const SbaLoan = () => (
                                     type="text/css"
                                     rel="stylesheet"
                                     media="all"
-                                    href="https://cdn.jotfor.ms/wizards/languageWizard/custom-dropdown/css/lang-dd.css?3.3.24465"
+                                    href="https://cdn.jotfor.ms/wizards/languageWizard/custom-dropdown/css/lang-dd.css?3.3.24787"
                                 />
                                 <div className="cont">
                                     <input
@@ -115,7 +115,7 @@ const SbaLoan = () => (
                                         className="form-input-wide"
                                         data-type="control_head"
                                     >
-                                        <div className="form-header-group header-large">
+                                        <div className="form-header-group  header-large">
                                             <div className="header-text httal htvam">
                                                 <h1
                                                     id="header_1"
@@ -141,7 +141,7 @@ const SbaLoan = () => (
                                                 className="form-html"
                                                 data-component="text"
                                             >
-                                                <p className>Business Information</p>
+                                                <p>Business Information</p>
                                             </div>
                                         </div>
                                     </li>
@@ -181,11 +181,7 @@ const SbaLoan = () => (
                                                         required
                                                         placeholder
                                                     />
-                                                    <label
-                                                        id="label_input_3_0"
-                                                        htmlFor="input_3_0"
-                                                        className
-                                                    >
+                                                    <label id="label_input_3_0" htmlFor="input_3_0">
                                                         {' '}
                                                         Sole Proprietor{' '}
                                                     </label>
@@ -3210,7 +3206,7 @@ Drag and drop files here"
                                                         maxWidth: 580,
                                                         border: 'none',
                                                         width: '100%',
-                                                        height: 39,
+                                                        height: 42,
                                                     }}
                                                     data-width={580}
                                                     data-height={50}
@@ -3449,7 +3445,7 @@ Drag and drop files here"
                                 id="input_107"
                                 name="q107_refNumber"
                                 className="form-textbox form-hidden"
-                                defaultValue="SBA2156"
+                                defaultValue="SBA8562"
                                 data-component="autoincrement"
                                 placeholder
                             />
@@ -3457,359 +3453,14 @@ Drag and drop files here"
                             <input
                                 type="hidden"
                                 name="event_id"
-                                defaultValue="1618825514101_210189014380145_3XJRatC"
+                                defaultValue="1618847891360_210189014380145_cS8yYST"
                             />
                             <input
                                 type="hidden"
                                 name="temp_upload_folder"
-                                defaultValue="210189014380145_607d512a51d58"
+                                defaultValue="210189014380145_607da8931f092"
                             />
                         </form>
-                        <img
-                            id="event_tracking_image"
-                            src="https://events.jotform.com/jsform/210189014380145/?ref=&res=1920x1080&eventID=1618825514101_210189014380145_3XJRatC&loc=undefined"
-                            alt="jftr"
-                            width={1}
-                            height={1}
-                            style={{ display: 'none' }}
-                        />
-                        <div
-                            aria-hidden="true"
-                            className="calendar popup"
-                            data-version="v2"
-                            style={{ position: 'absolute', display: 'none', width: 556 }}
-                            id="calendar_73"
-                        >
-                            <div className="calendar-new-header">
-                                <div className="calendar-new-month">
-                                    <span>April</span>
-                                </div>
-                            </div>
-                            <div className="calendar-new-year">2021</div>
-                            <table summary="Datepicker Popup">
-                                <thead>
-                                    <tr>
-                                        <td className="button previousMonth">‹</td>
-                                        <td className="button nextMonth">›</td>
-                                        <td className="button previousYear">«</td>
-                                        <td className="button nextYear">»</td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            colSpan={7}
-                                            className="title"
-                                            style={{ display: 'none' }}
-                                        >
-                                            April 2021
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan={3} className="button todayButton">
-                                            Today
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="weekend">S</th>
-                                        <th>M</th>
-                                        <th>T</th>
-                                        <th>W</th>
-                                        <th>T</th>
-                                        <th>F</th>
-                                        <th className="weekend">S</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="days">
-                                        <td className="otherDay weekend">28</td>
-                                        <td className="otherDay">29</td>
-                                        <td className="otherDay">30</td>
-                                        <td className="otherDay">31</td>
-                                        <td className>1</td>
-                                        <td className>2</td>
-                                        <td className="weekend">3</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">4</td>
-                                        <td className>5</td>
-                                        <td className>6</td>
-                                        <td className>7</td>
-                                        <td className>8</td>
-                                        <td className>9</td>
-                                        <td className="weekend">10</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">11</td>
-                                        <td className>12</td>
-                                        <td className>13</td>
-                                        <td className>14</td>
-                                        <td className>15</td>
-                                        <td className>16</td>
-                                        <td className="weekend">17</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">18</td>
-                                        <td className="selected today">19</td>
-                                        <td className>20</td>
-                                        <td className>21</td>
-                                        <td className>22</td>
-                                        <td className>23</td>
-                                        <td className="weekend">24</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">25</td>
-                                        <td className>26</td>
-                                        <td className>27</td>
-                                        <td className>28</td>
-                                        <td className>29</td>
-                                        <td className>30</td>
-                                        <td className="otherDay weekend">1</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">2</td>
-                                        <td className="otherDay">3</td>
-                                        <td className="otherDay">4</td>
-                                        <td className="otherDay">5</td>
-                                        <td className="otherDay">6</td>
-                                        <td className="otherDay">7</td>
-                                        <td className="otherDay weekend">8</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">9</td>
-                                        <td className="otherDay">10</td>
-                                        <td className="otherDay">11</td>
-                                        <td className="otherDay">12</td>
-                                        <td className="otherDay">13</td>
-                                        <td className="otherDay">14</td>
-                                        <td className="otherDay weekend">15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div
-                            aria-hidden="true"
-                            className="calendar popup"
-                            data-version="v2"
-                            style={{ position: 'absolute', display: 'none', width: 556 }}
-                            id="calendar_74"
-                        >
-                            <div className="calendar-new-header">
-                                <div className="calendar-new-month">
-                                    <span>April</span>
-                                </div>
-                            </div>
-                            <div className="calendar-new-year">2021</div>
-                            <table summary="Datepicker Popup">
-                                <thead>
-                                    <tr>
-                                        <td className="button previousMonth">‹</td>
-                                        <td className="button nextMonth">›</td>
-                                        <td className="button previousYear">«</td>
-                                        <td className="button nextYear">»</td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            colSpan={7}
-                                            className="title"
-                                            style={{ display: 'none' }}
-                                        >
-                                            April 2021
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan={3} className="button todayButton">
-                                            Today
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="weekend">S</th>
-                                        <th>M</th>
-                                        <th>T</th>
-                                        <th>W</th>
-                                        <th>T</th>
-                                        <th>F</th>
-                                        <th className="weekend">S</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="days">
-                                        <td className="otherDay weekend">28</td>
-                                        <td className="otherDay">29</td>
-                                        <td className="otherDay">30</td>
-                                        <td className="otherDay">31</td>
-                                        <td className>1</td>
-                                        <td className>2</td>
-                                        <td className="weekend">3</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">4</td>
-                                        <td className>5</td>
-                                        <td className>6</td>
-                                        <td className>7</td>
-                                        <td className>8</td>
-                                        <td className>9</td>
-                                        <td className="weekend">10</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">11</td>
-                                        <td className>12</td>
-                                        <td className>13</td>
-                                        <td className>14</td>
-                                        <td className>15</td>
-                                        <td className>16</td>
-                                        <td className="weekend">17</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">18</td>
-                                        <td className="selected today">19</td>
-                                        <td className>20</td>
-                                        <td className>21</td>
-                                        <td className>22</td>
-                                        <td className>23</td>
-                                        <td className="weekend">24</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">25</td>
-                                        <td className>26</td>
-                                        <td className>27</td>
-                                        <td className>28</td>
-                                        <td className>29</td>
-                                        <td className>30</td>
-                                        <td className="otherDay weekend">1</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">2</td>
-                                        <td className="otherDay">3</td>
-                                        <td className="otherDay">4</td>
-                                        <td className="otherDay">5</td>
-                                        <td className="otherDay">6</td>
-                                        <td className="otherDay">7</td>
-                                        <td className="otherDay weekend">8</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">9</td>
-                                        <td className="otherDay">10</td>
-                                        <td className="otherDay">11</td>
-                                        <td className="otherDay">12</td>
-                                        <td className="otherDay">13</td>
-                                        <td className="otherDay">14</td>
-                                        <td className="otherDay weekend">15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div
-                            aria-hidden="true"
-                            className="calendar popup"
-                            data-version="v2"
-                            style={{ position: 'absolute', display: 'none', width: 556 }}
-                            id="calendar_103"
-                        >
-                            <div className="calendar-new-header">
-                                <div className="calendar-new-month">
-                                    <span>April</span>
-                                </div>
-                            </div>
-                            <div className="calendar-new-year">2021</div>
-                            <table summary="Datepicker Popup">
-                                <thead>
-                                    <tr>
-                                        <td className="button previousMonth">‹</td>
-                                        <td className="button nextMonth">›</td>
-                                        <td className="button previousYear">«</td>
-                                        <td className="button nextYear">»</td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            colSpan={7}
-                                            className="title"
-                                            style={{ display: 'none' }}
-                                        >
-                                            April 2021
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colSpan={3} className="button todayButton">
-                                            Today
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="weekend">S</th>
-                                        <th>M</th>
-                                        <th>T</th>
-                                        <th>W</th>
-                                        <th>T</th>
-                                        <th>F</th>
-                                        <th className="weekend">S</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className="days">
-                                        <td className="otherDay weekend">28</td>
-                                        <td className="otherDay">29</td>
-                                        <td className="otherDay">30</td>
-                                        <td className="otherDay">31</td>
-                                        <td className>1</td>
-                                        <td className>2</td>
-                                        <td className="weekend">3</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">4</td>
-                                        <td className>5</td>
-                                        <td className>6</td>
-                                        <td className>7</td>
-                                        <td className>8</td>
-                                        <td className>9</td>
-                                        <td className="weekend">10</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">11</td>
-                                        <td className>12</td>
-                                        <td className>13</td>
-                                        <td className>14</td>
-                                        <td className>15</td>
-                                        <td className>16</td>
-                                        <td className="weekend">17</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">18</td>
-                                        <td className="selected today">19</td>
-                                        <td className>20</td>
-                                        <td className>21</td>
-                                        <td className>22</td>
-                                        <td className>23</td>
-                                        <td className="weekend">24</td>
-                                    </tr>
-                                    <tr className="days">
-                                        <td className="weekend">25</td>
-                                        <td className>26</td>
-                                        <td className>27</td>
-                                        <td className>28</td>
-                                        <td className>29</td>
-                                        <td className>30</td>
-                                        <td className="otherDay weekend">1</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">2</td>
-                                        <td className="otherDay">3</td>
-                                        <td className="otherDay">4</td>
-                                        <td className="otherDay">5</td>
-                                        <td className="otherDay">6</td>
-                                        <td className="otherDay">7</td>
-                                        <td className="otherDay weekend">8</td>
-                                    </tr>
-                                    <tr className="days" style={{ display: 'none' }}>
-                                        <td className="otherDay weekend">9</td>
-                                        <td className="otherDay">10</td>
-                                        <td className="otherDay">11</td>
-                                        <td className="otherDay">12</td>
-                                        <td className="otherDay">13</td>
-                                        <td className="otherDay">14</td>
-                                        <td className="otherDay weekend">15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <iframe style={{ display: 'none' }} id="cssscan-iframe" />
                     </div>
                 </div>
             </div>
