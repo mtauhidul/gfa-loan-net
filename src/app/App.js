@@ -6,9 +6,12 @@ export const ApplicationContext = createContext();
 function App() {
     const [loggedInApplication, setLoggedInApplication] = useState({});
     return (
-        <ApplicationContext.Provider value={[loggedInApplication, setLoggedInApplication]}>
+<ApplicationContext.Provider value={[loggedInApplication, setLoggedInApplication]}>
             <AppRouter />
-        </ApplicationContext.Provider>
+</ApplicationContext.Provider>
+        <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+            <AppRouter />
+        </UserContext.Provider>
     );
 }
 
