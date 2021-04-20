@@ -12,6 +12,7 @@ const Input = (props) => {
                 value={props.value}
                 defaultValue={props.defaultValue}
                 onChange={props.onChange}
+                ref={props.ref}
             />
             <Form.Text className="text-muted">{props.errorMessage}</Form.Text>
         </Form.Group>
