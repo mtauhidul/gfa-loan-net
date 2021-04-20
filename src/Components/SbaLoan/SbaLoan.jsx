@@ -3302,7 +3302,7 @@ Drag and drop files here"
                                                 >
                                                     <div data-wrapper-react="true">
                                                         {/* [if IE 7]>
-            
+
           <![endif] */}
                                                     </div>
                                                     <div
