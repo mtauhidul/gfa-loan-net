@@ -13,7 +13,8 @@ const NavBar = () => (
                             to="/"
                             className="logo_name navbar-brand s123-w-l-s page-unique s123-fast-page-load logoStyle_19"
                         >
-                            <span className="website-name">US Loan Applications</span>
+                            <span className="website-name">GFA </span>{' '}
+                            <span style={{ marginLeft: '10px' }}> Loan-Acc</span>
                         </Link>{' '}
                     </div>
                     <div id="top-menu">

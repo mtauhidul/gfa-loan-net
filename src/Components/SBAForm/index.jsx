@@ -1,7 +1,10 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable import/extensions */
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { useDropzone } from 'react-dropzone';
 import { useForm } from 'react-hook-form';
+import SignaturePad from 'react-signature-canvas';
 import dataofUS from '../../assets/data';
 import {
     applyingData,
@@ -10,6 +13,11 @@ import {
     // eslint-disable-next-line prettier/prettier
     purposeOfLoanData
 } from '../../assets/data/LoanData';
+import File1 from '../Uploads/File1/File1';
+import File2 from '../Uploads/File2/File2';
+import File3 from '../Uploads/File3/File3';
+import File4 from '../Uploads/File4/File4';
+import styles from './Styles.module.css';
 
 //*
 // componentName: SBAForm.jsx
@@ -26,14 +34,28 @@ const SBAForm = () => {
         // reset();
     };
     // dropzone files
-    const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+    const [file1, setFile1] = useState(null);
+    const [file2, setFile2] = useState(null);
+    const [file3, setFile3] = useState(null);
+    const [file4, setFile4] = useState(null);
 
-    const files = acceptedFiles.map((file) => (
-        <li key={file.path}>
-            {file.path} - {file.size} bytes
-        </li>
-    ));
-    console.log(files[0]);
+    console.log('File1:', file1);
+    console.log('File2:', file2);
+    console.log('File3:', file3);
+    console.log('File4:', file4);
+    const [trimmedState, setTrimmedState] = useState({
+        trimmedDataURL: null,
+    });
+    let sigPad = {};
+
+    const swap = () => {
+        sigPad.clear();
+    };
+
+    const trim = () => {
+        setTrimmedState({ trimmedDataURL: sigPad.getTrimmedCanvas().toDataURL('image/png') });
+    };
+
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -717,45 +739,16 @@ const SBAForm = () => {
                     )}
                 </Form.Group>
 
-                <section className="container">
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                        <input {...getInputProps()} />
-                        <Button>Upload your files</Button>
+                <section className="App">
+                    <div className="area-container">
+                        <File1 file1={file1} setFile1={setFile1} />
+                        <hr />
+                        <File2 file2={file2} setFile2={setFile2} />
+                        <hr />
+                        <File3 file3={file3} setFile3={setFile3} />
+                        <hr />
+                        <File4 file4={file4} setFile4={setFile4} />
                     </div>
-                    <aside>
-                        <h4>Files</h4>
-                        <ul>{files}</ul>
-                    </aside>
-                </section>
-                <section className="container">
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                        <input {...getInputProps()} />
-                        <Button>Drag 'n' drop some files here, or click to select files</Button>
-                    </div>
-                    <aside>
-                        <h4>Files</h4>
-                        <ul>{files}</ul>
-                    </aside>
-                </section>
-                <section className="container">
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                        <input {...getInputProps()} />
-                        <Button>Drag 'n' drop some files here, or click to select files</Button>
-                    </div>
-                    <aside>
-                        <h4>Files</h4>
-                        <ul>{files}</ul>
-                    </aside>
-                </section>
-                <section className="container">
-                    <div {...getRootProps({ className: 'dropzone' })}>
-                        <input {...getInputProps()} />
-                        <Button>Drag 'n' drop some files here, or click to select files</Button>
-                    </div>
-                    <aside>
-                        <h4>Files</h4>
-                        <ul>{files}</ul>
-                    </aside>
                 </section>
 
                 <Row>
@@ -793,7 +786,35 @@ const SBAForm = () => {
                     <Form.Check type="checkbox" label="Terms & Conditions " />
                 </Form.Group>
 
-                <Button className="bd-dark" block type="submit">
+                <Form.Group>
+                    <div className={styles.container}>
+                        <div className={styles.sigContainer}>
+                            <SignaturePad
+                                canvasProps={{ className: styles.sigPad }}
+                                ref={(ref) => {
+                                    sigPad = ref;
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <button className={styles.buttons} onClick={() => swap()}>
+                                swap
+                            </button>
+                            <button className={styles.buttons} onClick={() => trim()}>
+                                Trim
+                            </button>
+                        </div>
+                        {trimmedState.trimmedDataURL ? (
+                            <img
+                                className={styles.sigImage}
+                                alt="canvas"
+                                src={trimmedState.trimmedDataURL}
+                            />
+                        ) : null}
+                    </div>
+                </Form.Group>
+
+                <Button style={{ marginTop: '100px' }} className="bd-dark" block type="submit">
                     Register
                 </Button>
             </Form>

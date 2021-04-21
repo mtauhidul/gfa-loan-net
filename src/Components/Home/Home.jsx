@@ -26,7 +26,7 @@ const Home = () => (
                                                     id="home_siteSlogan"
                                                     className=" weight700   background10 0 16"
                                                 >
-                                                    US Loan Applications
+                                                    GFA <br /> Loan-Account Network
                                                 </h1>
                                                 <h2
                                                     id="home_siteSlogan_2"
