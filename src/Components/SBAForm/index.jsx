@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import SignaturePad from 'react-signature-canvas';
 import dataofUS from '../../assets/data';
 import {
@@ -26,13 +27,8 @@ import styles from './Styles.module.css';
 //*
 
 const SBAForm = () => {
-    // render form
-
-    const { register, handleSubmit, errors, reset } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-        // reset();
-    };
+    // form State
+    const [finalData, setFinalData] = useState({});
     // dropzone files
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
@@ -43,6 +39,8 @@ const SBAForm = () => {
     console.log('File2:', file2);
     console.log('File3:', file3);
     console.log('File4:', file4);
+    const AllFiles = [file1, file2, file3, file4];
+    finalData.AllFiles = [...AllFiles];
     const [trimmedState, setTrimmedState] = useState({
         trimmedDataURL: null,
     });
@@ -55,7 +53,17 @@ const SBAForm = () => {
     const trim = () => {
         setTrimmedState({ trimmedDataURL: sigPad.getTrimmedCanvas().toDataURL('image/png') });
     };
+    finalData.trimmedState = trimmedState;
 
+    // render form
+
+    const { register, handleSubmit, errors, reset } = useForm();
+    const onSubmit = (data) => {
+        setFinalData(data);
+        console.log(data);
+        // reset();
+    };
+    console.log(finalData);
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -216,7 +224,7 @@ const SBAForm = () => {
                     )}
                 </Form.Group> */}
 
-                <Form.Group controlId="address">
+                {/* <Form.Group controlId="address">
                     <Form.Label>ENTER YOUR ADDRESS *</Form.Label>
                     <Form.Control
                         type="text"
@@ -230,25 +238,7 @@ const SBAForm = () => {
                             Please enter a valid address
                         </small>
                     )}
-                </Form.Group>
-
-                <Form.Group controlId="state">
-                    <Form.Label>SELECT YOUR STATE</Form.Label>
-                    <Form.Control
-                        as="select"
-                        name="state"
-                        placeholder="STATE*"
-                        ref={register({ required: true })}
-                    >
-                        {dataofUS &&
-                            dataofUS.map((country) => (
-                                <option key={country.abbreviation}>{country.abbreviation}</option>
-                            ))}
-                    </Form.Control>
-                    {errors.state && (
-                        <small className="text-danger form-text">Please enter your state</small>
-                    )}
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group controlId="address">
                     <Form.Label as="legend" column sm={2}>
@@ -295,13 +285,20 @@ const SBAForm = () => {
                         )}
                     </Form.Group>
                     <Form.Group controlId="state">
+                        <Form.Label>SELECT YOUR STATE</Form.Label>
                         <Form.Control
-                            type="text"
+                            as="select"
                             name="state"
-                            placeholder=""
+                            placeholder="STATE*"
                             ref={register({ required: true })}
-                        />
-                        <Form.Text className="text-muted">State/Province</Form.Text>
+                        >
+                            {dataofUS &&
+                                dataofUS.map((country) => (
+                                    <option key={country.abbreviation}>
+                                        {country.abbreviation}
+                                    </option>
+                                ))}
+                        </Form.Control>
                         {errors.state && (
                             <small className="text-danger form-text">Please enter your state</small>
                         )}
@@ -321,7 +318,7 @@ const SBAForm = () => {
                         )}
                     </Form.Group>
                 </Form.Group>
-
+                {/* After Address */}
                 <Form.Group controlId="monthlyRevenue">
                     <Form.Label> Average Monthly Revenue *</Form.Label>
                     <Form.Control
@@ -357,6 +354,20 @@ const SBAForm = () => {
                     {errors.receivedFundingPPP && (
                         <small className="text-danger form-text">
                             Please select How much funding did you receive from PPP.
+                        </small>
+                    )}
+                </Form.Group>
+                <Form.Group controlId="FirstSBaLoanNo">
+                    <Form.Control
+                        type="text"
+                        name="FirstSbaLoanNo"
+                        placeholder=""
+                        ref={register({ required: true })}
+                    />
+                    <Form.Text className="text-muted">PPP First Draw SBA Loan Number</Form.Text>
+                    {errors.FirstSBaLoanNo && (
+                        <small className="text-danger form-text">
+                            Please enter PPP First Draw SBA Loan Number:
                         </small>
                     )}
                 </Form.Group>
@@ -491,9 +502,9 @@ const SBAForm = () => {
 
                 {/* Merchant/ Owner Information */}
 
-                <Form.Group controlId="OwnerName">
+                <Form.Group controlId="OwnerFullName">
                     <Form.Label as="legend" column sm={2}>
-                        Owner Name *
+                        Owner Full Name *
                     </Form.Label>
                     <Form.Control
                         type="text"
@@ -502,7 +513,9 @@ const SBAForm = () => {
                         ref={register({ required: true })}
                     />
                     {errors.OwnerName && (
-                        <small className="text-danger form-text">Please enter Owner name</small>
+                        <small className="text-danger form-text">
+                            Please enter Owner Full name
+                        </small>
                     )}
                 </Form.Group>
                 <Form.Group controlId="Ownership">
@@ -587,7 +600,7 @@ const SBAForm = () => {
 
                 <Form.Group controlId="PartnerName">
                     <Form.Label as="legend" column sm={2}>
-                        Partner Name *
+                        Partner Full Name *
                     </Form.Label>
                     <Form.Control
                         type="text"
@@ -596,7 +609,9 @@ const SBAForm = () => {
                         ref={register({ required: true })}
                     />
                     {errors.PartnerName && (
-                        <small className="text-danger form-text">Please enter Partner name</small>
+                        <small className="text-danger form-text">
+                            Please enter Partner Full name
+                        </small>
                     )}
                 </Form.Group>
                 <Form.Group controlId="POwnership">
@@ -649,7 +664,7 @@ const SBAForm = () => {
                 </Form.Group>
                 <Form.Group controlId="partnerPhoneNumber">
                     <Form.Label as="legend" column sm={2}>
-                        Owner Phone Number *
+                        Partner Phone Number *
                     </Form.Label>
                     <Form.Control
                         type="tel"
@@ -750,27 +765,6 @@ const SBAForm = () => {
                         <File4 file4={file4} setFile4={setFile4} />
                     </div>
                 </section>
-
-                <Row>
-                    <Col md={12}>
-                        {' '}
-                        <Form.Group controlId="zipcode">
-                            <Form.Label>ENTER YOUR ZIP-CODE *</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="zipcode"
-                                placeholder="ZIP CODE *"
-                                ref={register({ required: true })}
-                            />
-                            {errors.zipcode && (
-                                <small className="text-danger form-text">
-                                    Please enter your ZIpcode
-                                </small>
-                            )}
-                        </Form.Group>
-                    </Col>
-                </Row>
-
                 <Form.Group controlId="message">
                     <Form.Label>ENTER YOUR MESSAGE(optional)</Form.Label>
                     <Form.Control
@@ -780,13 +774,19 @@ const SBAForm = () => {
                         ref={register({ required: false })}
                     />
                 </Form.Group>
-                <small className="text-muted">*Required Info</small>
-
                 <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Terms & Conditions " />
+                    <Form.Label>
+                        I agree to <Link to="/">Terms and Conditions *</Link>
+                    </Form.Label>
+                    <Form.Check
+                        ref={register({ required: 'This is required' })}
+                        type="checkbox"
+                        value="TermsAndConditionsTrue"
+                    />
                 </Form.Group>
 
                 <Form.Group>
+                    <Form.Label>Signature* (sign here, then press trim)</Form.Label>
                     <div className={styles.container}>
                         <div className={styles.sigContainer}>
                             <SignaturePad
@@ -798,10 +798,10 @@ const SBAForm = () => {
                         </div>
                         <div>
                             <button className={styles.buttons} onClick={() => swap()}>
-                                swap
+                                Clear
                             </button>
                             <button className={styles.buttons} onClick={() => trim()}>
-                                Trim
+                                Save
                             </button>
                         </div>
                         {trimmedState.trimmedDataURL ? (
