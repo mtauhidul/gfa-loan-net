@@ -27,7 +27,7 @@ import styles from './Styles.module.css';
 //*
 
 const SBAForm = () => {
-    // form State
+    // form main State
     const [finalData, setFinalData] = useState({});
     // dropzone files
     const [file1, setFile1] = useState(null);
@@ -41,6 +41,7 @@ const SBAForm = () => {
     console.log('File4:', file4);
     const AllFiles = [file1, file2, file3, file4];
     finalData.AllFiles = [...AllFiles];
+    // canvas
     const [trimmedState, setTrimmedState] = useState({
         trimmedDataURL: null,
     });
@@ -53,14 +54,12 @@ const SBAForm = () => {
     const trim = () => {
         setTrimmedState({ trimmedDataURL: sigPad.getTrimmedCanvas().toDataURL('image/png') });
     };
+    // binding with main state
     finalData.trimmedState = trimmedState;
-
     // render form
-
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
         setFinalData(data);
-        console.log(data);
         // reset();
     };
     console.log(finalData);
