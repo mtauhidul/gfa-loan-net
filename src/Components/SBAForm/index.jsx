@@ -502,18 +502,29 @@ const SBAForm = () => {
                 {/* Merchant/ Owner Information */}
 
                 <Form.Group controlId="OwnerFullName">
-                    <Form.Label as="legend" column sm={2}>
-                        Owner Full Name *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="OwnerName"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
+                    <Col sm={2}>
+                        <Form.Label as="legend">Owner Full Name *</Form.Label>
+                    </Col>
+                    <Col sm={5}>
+                        <Form.Control
+                            type="text"
+                            name="OwnerFirstName"
+                            placeholder=""
+                            ref={register({ required: true })}
+                        />
+                    </Col>
+                    <Col sm={5}>
+                        {' '}
+                        <Form.Control
+                            type="text"
+                            name="OwnerLastName"
+                            placeholder=""
+                            ref={register({ required: true })}
+                        />
+                    </Col>
                     {errors.OwnerName && (
                         <small className="text-danger form-text">
-                            Please enter Owner Full name
+                            Please enter Owner FirstName and Last name
                         </small>
                     )}
                 </Form.Group>
@@ -597,16 +608,27 @@ const SBAForm = () => {
 
                 <Form.Text className="text-success">Partner Information</Form.Text>
 
-                <Form.Group controlId="PartnerName">
-                    <Form.Label as="legend" column sm={2}>
-                        Partner Full Name *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="PartnerName"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
+                <Form.Group className="my-2" controlId="PartnerName">
+                    <Col sm={2}>
+                        <Form.Label as="legend">Partner Full Name *</Form.Label>
+                    </Col>
+                    <Col sm={5}>
+                        {' '}
+                        <Form.Control
+                            type="text"
+                            name="PartnerFirstName"
+                            placeholder="Partner First Name"
+                            ref={register({ required: true })}
+                        />
+                    </Col>
+                    <Col sm={5}>
+                        <Form.Control
+                            type="text"
+                            name="PartnerLastName"
+                            placeholder="Partner First Name"
+                            ref={register({ required: true })}
+                        />
+                    </Col>
                     {errors.PartnerName && (
                         <small className="text-danger form-text">
                             Please enter Partner Full name
