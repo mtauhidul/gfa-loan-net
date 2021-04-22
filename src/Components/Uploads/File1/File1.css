@@ -1,0 +1,8 @@
+.upload-box {
+  width: 100%;
+  border: 1px solid lightgrey;
+  text-align: center;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: azure;
+}

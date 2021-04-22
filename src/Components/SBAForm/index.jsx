@@ -17,6 +17,7 @@ import File1 from '../Uploads/File1/File1';
 import File2 from '../Uploads/File2/File2';
 import File3 from '../Uploads/File3/File3';
 import File4 from '../Uploads/File4/File4';
+import './style.css';
 import styles from './Styles.module.css';
 
 //*
@@ -58,9 +59,11 @@ const SBAForm = () => {
 
     return (
         <>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-                {/* Applying as * */}
-
+            <Form
+                id="sba-form"
+                style={{ textAlign: 'left', margin: '0 auto', padding: '10px' }}
+                onSubmit={handleSubmit(onSubmit)}
+            >
                 <Form.Group as={Row} controlId="applyingAs">
                     <Form.Label as="legend" column sm={2}>
                         Applying as <span className="text-danger">*</span>
