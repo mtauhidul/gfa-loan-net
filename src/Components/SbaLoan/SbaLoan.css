@@ -1,3 +1,9 @@
+.formWrapper {
+  max-width: 900px;
+  margin: 0 auto !important;
+  background: whitesmoke;
+  padding: 5vw;
+}
 .appointmentCalendar {
   box-shadow: none !important;
 }

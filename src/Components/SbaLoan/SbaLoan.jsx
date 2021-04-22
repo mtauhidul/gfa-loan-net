@@ -34,7 +34,7 @@ const SbaLoan = () => (
                         </li>
                     </ol>
                 </div>
-                <div className="row">
+                <div style={{ marginTop: '100px' }} className="row">
                     <div className="container">
                         <div className="row modulesTitle">
                             <div className="col-xs-12 text-center">
@@ -50,7 +50,9 @@ const SbaLoan = () => (
             <div className="container">
                 <div className="row text-center">
                     <div className="col-xs-12">
-                        <SBAForm />
+                        <div className="formWrapper">
+                            <SBAForm />
+                        </div>
                     </div>
                 </div>
             </div>

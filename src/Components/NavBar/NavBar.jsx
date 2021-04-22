@@ -115,7 +115,7 @@ const NavBar = () => (
                     href="index"
                     className="logo_name navbar-brand s123-w-l-s page-unique s123-fast-page-load logoStyle_19"
                 >
-                    <span className="website-name">Loan-Acc</span>
+                    <span className="website-name">GFA Loan-Acc</span>
                 </a>{' '}
             </div>
             <div className="navPagesRight">
