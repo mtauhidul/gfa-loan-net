@@ -802,6 +802,7 @@ const SBAForm = () => {
                     <Form.Check
                         ref={register({ required: 'This is required' })}
                         type="checkbox"
+                        name="TermsAndConditionsTrue"
                         value="TermsAndConditionsTrue"
                     />
                 </Form.Group>
