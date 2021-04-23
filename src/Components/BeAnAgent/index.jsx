@@ -140,15 +140,6 @@ const BeAnAgent = () => {
                     </Col>
                 </Row>
 
-                <Form.Group controlId="message">
-                    <Form.Label>ENTER YOUR MESSAGE(optional)</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        name="message"
-                        placeholder="Add your Message"
-                        ref={register({ required: false })}
-                    />
-                </Form.Group>
                 <small className="text-muted">*Required Info</small>
 
                 <Form.Group controlId="formBasicCheckbox">
