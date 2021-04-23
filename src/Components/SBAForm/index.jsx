@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable prefer-const */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable react/button-has-type */
 /* eslint-disable import/extensions */
@@ -19,7 +21,6 @@ import File1 from '../Uploads/File1/File1';
 import File2 from '../Uploads/File2/File2';
 import File3 from '../Uploads/File3/File3';
 import File4 from '../Uploads/File4/File4';
-import './style.css';
 import styles from './Styles.module.css';
 
 //*
@@ -36,13 +37,7 @@ const SBAForm = () => {
     const [file2, setFile2] = useState([]);
     const [file3, setFile3] = useState([]);
     const [file4, setFile4] = useState([]);
-
-    console.log('File1:', file1);
-    console.log('File2:', file2);
-    console.log('File3:', file3);
-    console.log('File4:', file4);
     const AllFiles = [...file1, ...file2, ...file3, ...file4];
-    console.log(AllFiles);
     finalData.AllFiles = [...AllFiles];
     // canvas
     const [trimmedState, setTrimmedState] = useState({
@@ -60,25 +55,34 @@ const SBAForm = () => {
     // binding with main state
     finalData.trimmedState = trimmedState;
     // render form
+
     const { register, handleSubmit, errors, reset } = useForm();
+    const formData = new FormData();
     const onSubmit = (data) => {
-        const formData = new FormData();
-        for (const photo of AllFiles) {
-            formData.append('files', photo);
+        if (AllFiles.length) {
+            // eslint-disable-next-line prettier/prettier
+            formData.append('data', JSON.stringify(data));
+            for (let i = 0; i < AllFiles.length; i++) {
+                formData.append('pic', AllFiles[i]);
+            }
+            formData.append('signature', JSON.stringify(trimmedState.trimmedDataURL));
+            console.log(formData);
         }
-        formData.append('data', data);
-        formData.append('signature', trimmedState);
-        setFinalData(trimmedState);
-        // reset();
+        setFinalData(data);
+        fetch('http://localhost:8000/api/sbaLoanRegister', {
+            method: 'POST',
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log('console log');
+            });
     };
-    console.log(finalData);
     return (
         <>
-            <Form
-                id="sba-form"
-                style={{ textAlign: 'left', margin: '0 auto', padding: '10px' }}
-                onSubmit={handleSubmit(onSubmit)}
-            >
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                {/* Applying as * */}
+
                 <Form.Group as={Row} controlId="applyingAs">
                     <Form.Label as="legend" column sm={2}>
                         Applying as <span className="text-danger">*</span>
@@ -242,7 +246,6 @@ const SBAForm = () => {
                         placeholder="address"
                         ref={register({ required: true })}
                     />
-
                     {errors.address && (
                         <small className="text-danger form-text">
                             Please enter a valid address
@@ -797,7 +800,15 @@ const SBAForm = () => {
                         <File4 file4={file4} setFile4={setFile4} />
                     </div>
                 </section>
-
+                <Form.Group controlId="message">
+                    <Form.Label>ENTER YOUR MESSAGE(optional)</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        name="message"
+                        placeholder="Add your Message"
+                        ref={register({ required: false })}
+                    />
+                </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Label>
                         I agree to <Link to="/">Terms and Conditions *</Link>
@@ -810,9 +821,9 @@ const SBAForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group style={{ marginTop: '200px' }}>
+                <Form.Group>
                     <Form.Label>Signature* (sign here, then press trim)</Form.Label>
-                    <div style={{ marginTop: '200px' }} className={styles.container}>
+                    <div className={styles.container}>
                         <div className={styles.sigContainer}>
                             <SignaturePad
                                 canvasProps={{ className: styles.sigPad }}

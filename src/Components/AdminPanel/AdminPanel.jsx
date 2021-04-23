@@ -17,7 +17,7 @@ function AdminPanel() {
                 style={{
                     width: '100%',
                     height: '200px',
-                    background: 'skyblue',
+                    background: '#1fba6f',
                     display: 'flex',
                     WebkitFlexDirection: 'column',
                     justifyContent: 'center',

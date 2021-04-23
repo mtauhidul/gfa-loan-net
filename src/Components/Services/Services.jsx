@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const Services = () => (
-    <Container fluid style={{ marginTop: '110px' }}>
+    <Container fluid style={{ marginTop: '50px' }}>
         <section
             id="section-5fe2922785581"
             className="s123-module s123-module-services layout-2 bg-primary"
@@ -26,7 +26,7 @@ const Services = () => (
                         </li>
                     </ol>
                 </div>
-                <div className="row">
+                <div className="row" style={{ marginTop: '50px', marginBottom: '50px' }}>
                     <div className="container">
                         <div className="row modulesTitle">
                             <div className="col-xs-12 text-center">

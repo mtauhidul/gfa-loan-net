@@ -11,7 +11,7 @@ function AgentPanel() {
                 style={{
                     width: '100%',
                     height: '300px',
-                    background: 'skyblue',
+                    background: '#1fba6f',
                     display: 'flex',
                     WebkitFlexDirection: 'column',
                     justifyContent: 'center',

@@ -46,5 +46,9 @@ label {
   color: rgb(119, 118, 118);
 }
 /* :root {
-  --global_main_color: skyblue;
+  --global_main_color: #1fba6f;
 } */
+
+.breadcrumb {
+  width: 100%;
+}

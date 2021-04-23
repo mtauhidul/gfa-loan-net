@@ -10,7 +10,7 @@ import SBAForm from '../SBAForm';
 import './SbaLoan.css';
 
 const SbaLoan = () => (
-    <Container fluid style={{ marginTop: '150px' }}>
+    <Container fluid style={{ marginTop: '100px', marginBottom: '100px' }}>
         <section
             id="section-602ca1383e7e0"
             className="s123-module s123-module-customIframePlugin layout-1 bg-primary"
@@ -34,7 +34,7 @@ const SbaLoan = () => (
                         </li>
                     </ol>
                 </div>
-                <div style={{ marginTop: '100px' }} className="row">
+                <div style={{ marginTop: '100px', marginBottom: '50px' }} className="row">
                     <div className="container">
                         <div className="row modulesTitle">
                             <div className="col-xs-12 text-center">

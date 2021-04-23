@@ -49,6 +49,21 @@ const NavBar = () => (
                                 </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink className="page-unique s123-fast-page-load" to="/mortgage">
+                                    <span className="txt-container">HOME MORTGAGE</span>
+                                </NavLink>
+                            </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink className="page-unique s123-fast-page-load" to="/programs">
+                                    <span className="txt-container">programs</span>
+                                </NavLink>
+                            </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
+                                <NavLink className="page-unique s123-fast-page-load" to="/contact">
+                                    <span className="txt-container">CONTACT US</span>
+                                </NavLink>
+                            </li>
+                            <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
                                 <NavLink
                                     className="page-unique s123-fast-page-load"
                                     to="/be-an-agent"

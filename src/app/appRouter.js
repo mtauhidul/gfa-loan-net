@@ -4,9 +4,12 @@ import AdminAuth from '../Components/AdminAuth';
 import AdminPanel from '../Components/AdminPanel/AdminPanel';
 import AgentPanel from '../Components/AgentPanel/AgentPanel';
 import BusinessLoan from '../Components/BusinessLoan/BusinessLoan';
+import ContactUs from '../Components/ContactUs/ContactUs';
 import Footer from '../Components/Footer/Footer';
 import Home from '../Components/Home/Home';
+import Mortgage from '../Components/Mortgage/Mortgage';
 import NavBar from '../Components/NavBar/NavBar';
+import Programs from '../Components/Programs/Programs';
 import SbaLoan from '../Components/SbaLoan/SbaLoan';
 import Services from '../Components/Services/Services';
 import BeAnAgentSection from '../pages/BeAnAgentSection';
@@ -42,6 +45,15 @@ const AppRouter = () => (
             </Route>
             <Route path="/admin">
                 <AdminAuth />
+            </Route>
+            <Route path="/contact">
+                <ContactUs />
+            </Route>
+            <Route path="/programs">
+                <Programs />
+            </Route>
+            <Route path="/mortgage">
+                <Mortgage />
             </Route>
         </Switch>
         <Footer />
