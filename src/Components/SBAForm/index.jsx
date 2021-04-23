@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable react/button-has-type */
 /* eslint-disable import/extensions */
 /* eslint-disable react/no-unescaped-entities */
@@ -31,16 +32,17 @@ const SBAForm = () => {
     // form main State
     const [finalData, setFinalData] = useState({});
     // dropzone files
-    const [file1, setFile1] = useState(null);
-    const [file2, setFile2] = useState(null);
-    const [file3, setFile3] = useState(null);
-    const [file4, setFile4] = useState(null);
+    const [file1, setFile1] = useState([]);
+    const [file2, setFile2] = useState([]);
+    const [file3, setFile3] = useState([]);
+    const [file4, setFile4] = useState([]);
 
     console.log('File1:', file1);
     console.log('File2:', file2);
     console.log('File3:', file3);
     console.log('File4:', file4);
-    const AllFiles = [file1, file2, file3, file4];
+    const AllFiles = [...file1, ...file2, ...file3, ...file4];
+    console.log(AllFiles);
     finalData.AllFiles = [...AllFiles];
     // canvas
     const [trimmedState, setTrimmedState] = useState({
@@ -60,7 +62,13 @@ const SBAForm = () => {
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
-        setFinalData(data);
+        const formData = new FormData();
+        for (const photo of AllFiles) {
+            formData.append('files', photo);
+        }
+        formData.append('data', data);
+        formData.append('signature', trimmedState);
+        setFinalData(trimmedState);
         // reset();
     };
     console.log(finalData);
@@ -805,6 +813,7 @@ const SBAForm = () => {
                     <Form.Check
                         ref={register({ required: 'This is required' })}
                         type="checkbox"
+                        name="TermsAndConditionsTrue"
                         value="TermsAndConditionsTrue"
                     />
                 </Form.Group>
