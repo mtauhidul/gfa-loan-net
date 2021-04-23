@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable react/button-has-type */
 /* eslint-disable import/extensions */
 /* eslint-disable react/no-unescaped-entities */
@@ -8,41 +7,44 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SignaturePad from 'react-signature-canvas';
 import dataofUS from '../../assets/data';
-import {
-    applyingData,
-    funding,
-    monthlyRevenue,
-    // eslint-disable-next-line prettier/prettier
-    purposeOfLoanData
-} from '../../assets/data/LoanData';
-import File1 from '../Uploads/File1/File1';
-import File2 from '../Uploads/File2/File2';
-import File3 from '../Uploads/File3/File3';
-import File4 from '../Uploads/File4/File4';
+import { applyingData, monthlyRevenue } from '../../assets/data/LoanData';
+import File1 from '../SixUploads/File1/File1';
+import File2 from '../SixUploads/File2/File2';
+import File3 from '../SixUploads/File3/File3';
+import File4 from '../SixUploads/File4/File4';
+import File5 from '../SixUploads/File5/File5';
+import File6 from '../SixUploads/File6/File6';
+import File7 from '../SixUploads/File7/File7';
+import File8 from '../SixUploads/File8/File8';
 import './style.css';
 import styles from './Styles.module.css';
 
 //*
-// componentName: SBAForm.jsx
+// componentName: BusinessForm.jsx
 //     author: #
 // purpose:
 //*
 
-const SBAForm = () => {
+const BusinessForm = () => {
     // form main State
     const [finalData, setFinalData] = useState({});
     // dropzone files
-    const [file1, setFile1] = useState([]);
-    const [file2, setFile2] = useState([]);
-    const [file3, setFile3] = useState([]);
-    const [file4, setFile4] = useState([]);
+    const [file1, setFile1] = useState(null);
+    const [file2, setFile2] = useState(null);
+    const [file3, setFile3] = useState(null);
+    const [file4, setFile4] = useState(null);
+    const [file5, setFile5] = useState(null);
+    const [file6, setFile6] = useState(null);
+    const [file7, setFile7] = useState(null);
+    const [file8, setFile8] = useState(null);
 
     console.log('File1:', file1);
     console.log('File2:', file2);
     console.log('File3:', file3);
     console.log('File4:', file4);
-    const AllFiles = [...file1, ...file2, ...file3, ...file4];
-    console.log(AllFiles);
+    console.log('File5:', file5);
+    console.log('File6:', file6);
+    const AllFiles = [file1, file2, file3, file4, file5, file6];
     finalData.AllFiles = [...AllFiles];
     // canvas
     const [trimmedState, setTrimmedState] = useState({
@@ -62,13 +64,7 @@ const SBAForm = () => {
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
-        const formData = new FormData();
-        for (const photo of AllFiles) {
-            formData.append('files', photo);
-        }
-        formData.append('data', data);
-        formData.append('signature', trimmedState);
-        setFinalData(trimmedState);
+        setFinalData(data);
         // reset();
     };
     console.log(finalData);
@@ -102,33 +98,6 @@ const SBAForm = () => {
                     {errors.applyingAs && (
                         <small className="text-danger form-text">
                             Please enter your applyingAs Type
-                        </small>
-                    )}
-                </Form.Group>
-                {/* Purpose of the Loan */}
-                <Form.Group as={Row} controlId="purposeOfLoan">
-                    <Form.Label as="legend" column sm={2}>
-                        Purpose of the Loan *<span className="text-danger">*</span>
-                    </Form.Label>
-                    <Col sm={10}>
-                        <Row>
-                            {purposeOfLoanData &&
-                                purposeOfLoanData.map((loan) => (
-                                    <Col key={loan.name} sm={6}>
-                                        <Form.Check
-                                            ref={register({ required: 'This is required' })}
-                                            type="checkbox"
-                                            label={loan.name}
-                                            value={loan.name}
-                                            name="purposeOfLoan"
-                                        />
-                                    </Col>
-                                ))}
-                        </Row>
-                    </Col>
-                    {errors.purposeOfLoan && (
-                        <small className="text-danger form-text">
-                            Please enter your PurposeOfLoan options
                         </small>
                     )}
                 </Form.Group>
@@ -348,39 +317,7 @@ const SBAForm = () => {
                         </small>
                     )}
                 </Form.Group>
-                <Form.Group controlId="receivedFundingPPP">
-                    <Form.Label> How much funding did you receive from PPP Round 1 *</Form.Label>
-                    <Form.Control
-                        as="select"
-                        name="receivedFunding"
-                        placeholder="Please Select"
-                        ref={register({ required: true })}
-                    >
-                        {funding &&
-                            funding.map((data) => (
-                                <option key={data.fundingOption}>{data.fundingOption}</option>
-                            ))}
-                    </Form.Control>
-                    {errors.receivedFundingPPP && (
-                        <small className="text-danger form-text">
-                            Please select How much funding did you receive from PPP.
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="FirstSBaLoanNo">
-                    <Form.Control
-                        type="text"
-                        name="FirstSbaLoanNo"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    <Form.Text className="text-muted">PPP First Draw SBA Loan Number</Form.Text>
-                    {errors.FirstSBaLoanNo && (
-                        <small className="text-danger form-text">
-                            Please enter PPP First Draw SBA Loan Number:
-                        </small>
-                    )}
-                </Form.Group>
+
                 {/* 5 Radio start  form here */}
                 {/* merchantCash Advance */}
                 <Form.Group as={Row}>
@@ -433,31 +370,6 @@ const SBAForm = () => {
                     )}
                 </Form.Group>
                 <Form.Group as={Row}>
-                    <Form.Label id="ownerDefaultedLoss" as="legend" column sm={2}>
-                        Has the Applicant or any owner defaulted in the last 7 years and caused a
-                        loss to the government? *
-                    </Form.Label>
-                    <Col sm={10}>
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            value="yes"
-                            label="Yes"
-                            name="ownerDefaultedLoss"
-                        />
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            label="No"
-                            value="no"
-                            name="ownerDefaultedLoss"
-                        />
-                    </Col>
-                    {errors.ownerDefaultedLoss && (
-                        <small className="text-danger form-text">Please Select your one</small>
-                    )}
-                </Form.Group>
-                <Form.Group as={Row}>
                     <Form.Label id="hasBusinessOfOwner" as="legend" column sm={2}>
                         Is the Applicant or any owner of the Applicant an owner of any other
                         business? *
@@ -482,31 +394,6 @@ const SBAForm = () => {
                         <small className="text-danger form-text">Please Select your one</small>
                     )}
                 </Form.Group>
-                <Form.Group as={Row}>
-                    <Form.Label id="gotDisasterLoan" as="legend" column sm={2}>
-                        Has the Applicant received an SBA Economic Injury Disaster Loan between Jan.
-                        31,2020 and Apr. 31, 2020?
-                    </Form.Label>
-                    <Col sm={10}>
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            value="yes"
-                            label="Yes"
-                            name="gotDisasterLoan"
-                        />
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            label="No"
-                            value="no"
-                            name="gotDisasterLoan"
-                        />
-                    </Col>
-                    {errors.gotDisasterLoan && (
-                        <small className="text-danger form-text">Please Select your one</small>
-                    )}
-                </Form.Group>
 
                 <Form.Text className="text-success">Merchant/ Owner Information</Form.Text>
 
@@ -514,7 +401,7 @@ const SBAForm = () => {
 
                 <Form.Group controlId="OwnerFullName">
                     <Col sm={2}>
-                        <Form.Label as="legend">Owner Full Name *</Form.Label>
+                        <Form.Label as="legend">Applicant Full Name *</Form.Label>
                     </Col>
                     <Col sm={5}>
                         <Form.Control
@@ -536,6 +423,22 @@ const SBAForm = () => {
                     {errors.OwnerName && (
                         <small className="text-danger form-text">
                             Please enter Owner FirstName and Last name
+                        </small>
+                    )}
+                </Form.Group>
+                <Form.Group controlId="ownerPhoneNumber">
+                    <Form.Label as="legend" column sm={2}>
+                        Owner Phone Number *
+                    </Form.Label>
+                    <Form.Control
+                        type="tel"
+                        name="ownerPhoneNumber"
+                        placeholder="(000) 000-0000"
+                        ref={register({ required: true })}
+                    />
+                    {errors.ownerPhoneNumber && (
+                        <small className="text-danger form-text">
+                            Please enter a Valid Owner Phone number
                         </small>
                     )}
                 </Form.Group>
@@ -599,192 +502,6 @@ const SBAForm = () => {
                         </small>
                     )}
                 </Form.Group>
-                <Form.Group controlId="ownerPhoneNumber">
-                    <Form.Label as="legend" column sm={2}>
-                        Owner Phone Number *
-                    </Form.Label>
-                    <Form.Control
-                        type="tel"
-                        name="ownerPhoneNumber"
-                        placeholder="(000) 000-0000"
-                        ref={register({ required: true })}
-                    />
-                    {errors.ownerPhoneNumber && (
-                        <small className="text-danger form-text">
-                            Please enter a Valid Owner Phone number
-                        </small>
-                    )}
-                </Form.Group>
-                {/* Partner Information */}
-
-                <Form.Text className="text-success">Partner Information</Form.Text>
-
-                <Form.Group className="my-2" controlId="PartnerName">
-                    <Col sm={2}>
-                        <Form.Label as="legend">Partner Full Name *</Form.Label>
-                    </Col>
-                    <Col sm={5}>
-                        {' '}
-                        <Form.Control
-                            type="text"
-                            name="PartnerFirstName"
-                            placeholder="Partner First Name"
-                            ref={register({ required: true })}
-                        />
-                    </Col>
-                    <Col sm={5}>
-                        <Form.Control
-                            type="text"
-                            name="PartnerLastName"
-                            placeholder="Partner First Name"
-                            ref={register({ required: true })}
-                        />
-                    </Col>
-                    {errors.PartnerName && (
-                        <small className="text-danger form-text">
-                            Please enter Partner Full name
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="POwnership">
-                    <Form.Label as="legend" column sm={2}>
-                        Ownership%
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="POwnership"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    {errors.POwnership && (
-                        <small className="text-danger form-text">
-                            Please enter your partner OwnerShip
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="PartnerSSN">
-                    <Form.Label as="legend" column sm={2}>
-                        SSN *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="PartnerSSN"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    {errors.PartnerSSN && (
-                        <small className="text-danger form-text">
-                            Please enter your partner SSN
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="partnerFICO">
-                    <Form.Label as="legend" column sm={2}>
-                        FICO *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="partnerFICO"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    {errors.partnerFICO && (
-                        <small className="text-danger form-text">
-                            Please enter your partner FICO Number
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="partnerPhoneNumber">
-                    <Form.Label as="legend" column sm={2}>
-                        Partner Phone Number *
-                    </Form.Label>
-                    <Form.Control
-                        type="tel"
-                        name="partnerPhoneNumber"
-                        placeholder="(000) 000-0000"
-                        ref={register({ required: true })}
-                    />
-                    {errors.partnerPhoneNumber && (
-                        <small className="text-danger form-text">
-                            Please enter a Valid partner Phone number
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group controlId="PartnerDateOB">
-                    <Form.Label as="legend" column sm={2}>
-                        Date of Birth of Applicant *
-                    </Form.Label>
-                    <Form.Control
-                        type="date"
-                        name="PartnerDateOB"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    {errors.PartnerDateOB && (
-                        <small className="text-danger form-text">
-                            Please enter your partner Date of Birth
-                        </small>
-                    )}
-                </Form.Group>
-                <Form.Group as={Row}>
-                    <Form.Label id="agreeWithLoanAcc" as="legend" column sm={2}>
-                        Do you also want to process business loan with Loan Acc Network? *
-                    </Form.Label>
-                    <Col sm={10}>
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            value="yes"
-                            label="Yes"
-                            name="agreeWithLoanAcc"
-                        />
-                        <Form.Check
-                            type="radio"
-                            ref={register({ required: 'This is required' })}
-                            label="No"
-                            value="no"
-                            name="agreeWithLoanAcc"
-                        />
-                    </Col>
-                    {errors.agreeWithLoanAcc && (
-                        <small className="text-danger form-text">Please Select your one</small>
-                    )}
-                </Form.Group>
-
-                {/* Upload your last six months bank statements and photo ID below */}
-
-                <Form.Text className="text-success">
-                    Upload your last six months bank statements and photo ID below
-                </Form.Text>
-
-                <Form.Group controlId="Promotioncode">
-                    <Form.Label as="legend" column sm={2}>
-                        Promotion Code *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="PromotionCode"
-                        placeholder=""
-                        ref={register({ required: false })}
-                    />
-                    <Form.Text>Put the Promotion Code if you have one</Form.Text>
-                </Form.Group>
-                <Form.Group controlId="HowKnowUs">
-                    <Form.Label as="legend" column sm={2}>
-                        How do you know us? *
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="KnowUs"
-                        placeholder=""
-                        ref={register({ required: true })}
-                    />
-                    {errors.HowKnowUs && (
-                        <small className="text-danger form-text">
-                            Please enter your partner FICO Number
-                        </small>
-                    )}
-                </Form.Group>
 
                 <section className="App">
                     <div className="area-container">
@@ -795,6 +512,14 @@ const SBAForm = () => {
                         <File3 file3={file3} setFile3={setFile3} />
                         <hr />
                         <File4 file4={file4} setFile4={setFile4} />
+                        <hr />
+                        <File5 file5={file5} setFile5={setFile5} />
+                        <hr />
+                        <File6 file6={file6} setFile6={setFile6} />
+                        <hr />
+                        <File7 file6={file7} setFile6={setFile7} />
+                        <hr />
+                        <File8 file8={file8} setFile8={setFile8} />
                     </div>
                 </section>
 
@@ -805,14 +530,13 @@ const SBAForm = () => {
                     <Form.Check
                         ref={register({ required: 'This is required' })}
                         type="checkbox"
-                        name="TermsAndConditionsTrue"
                         value="TermsAndConditionsTrue"
                     />
                 </Form.Group>
 
-                <Form.Group style={{ marginTop: '200px' }}>
+                <Form.Group>
                     <Form.Label>Signature* (sign here, then press trim)</Form.Label>
-                    <div style={{ marginTop: '200px' }} className={styles.container}>
+                    <div className={styles.container}>
                         <div className={styles.sigContainer}>
                             <SignaturePad
                                 canvasProps={{ className: styles.sigPad }}
@@ -847,4 +571,4 @@ const SBAForm = () => {
     );
 };
 
-export default SBAForm;
+export default BusinessForm;
