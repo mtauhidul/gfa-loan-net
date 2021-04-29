@@ -7469,3 +7469,14 @@ iframe[data-client-id="5295b800485bd19f5d000005"] {
 .isBuilder iframe[data-client-id="5295b800485bd19f5d000005"] {
   pointer-events: none;
 }
+
+.jfUpload-files-container {
+  width: 100%;
+  border: 1px dashed lightgrey;
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}

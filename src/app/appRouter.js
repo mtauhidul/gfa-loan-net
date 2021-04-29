@@ -1,8 +1,7 @@
 /* eslint-disable import/no-cycle */
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Admin from '../Components/Admin/Admin';
 import AdminAuth from '../Components/AdminAuth';
-import AdminPanel from '../Components/AdminPanel/AdminPanel';
-import AgentPanel from '../Components/AgentPanel/AgentPanel';
 import BusinessLoan from '../Components/BusinessLoan/BusinessLoan';
 import ContactUs from '../Components/ContactUs/ContactUs';
 import Footer from '../Components/Footer/Footer';
@@ -15,9 +14,8 @@ import Services from '../Components/Services/Services';
 import BeAnAgentSection from '../pages/BeAnAgentSection';
 import Signin from '../pages/Signin';
 
-const AppRouter = () => (
-    <>
-        <NavBar />
+const AppRouter = () => {
+    const routes = (
         <Switch>
             <Route exact path="/">
                 <Home />
@@ -28,22 +26,13 @@ const AppRouter = () => (
             <Route path="/business-loan-application-1">
                 <BusinessLoan />
             </Route>
-            <Route path="/services">
-                <Services />
-            </Route>
-            <Route path="/admin-panel">
-                <AdminPanel />
-            </Route>
-            <Route path="/agent-dashboard">
-                <AgentPanel />
-            </Route>
             <Route path="/be-an-agent">
                 <BeAnAgentSection />
             </Route>
             <Route path="/signin">
                 <Signin />
             </Route>
-            <Route path="/admin">
+            <Route path="/admin-login">
                 <AdminAuth />
             </Route>
             <Route path="/contact">
@@ -55,9 +44,21 @@ const AppRouter = () => (
             <Route path="/mortgage">
                 <Mortgage />
             </Route>
+            <Route path="/services">
+                <Services />
+            </Route>
+            <Route path="/admin">
+                <Admin />
+            </Route>
         </Switch>
-        <Footer />
-    </>
-);
+    );
+    return (
+        <Router>
+            <NavBar />
+            {routes}
+            <Footer />
+        </Router>
+    );
+};
 
 export default AppRouter;

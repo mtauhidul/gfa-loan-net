@@ -80,10 +80,7 @@ const NavBar = () => (
                                 </NavLink>
                             </li>
                             <li className="moduleMenu" data-menu-module-id="5ffe239aeb0f6">
-                                <NavLink
-                                    className="page-unique s123-fast-page-load"
-                                    to="/admin-panel"
-                                >
+                                <NavLink className="page-unique s123-fast-page-load" to="/admin">
                                     <span className="txt-container">Admin</span>
                                 </NavLink>
                             </li>

@@ -1,6 +1,9 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import dataofUS from '../../assets/data';
+import firebase from '../../firebase';
 
 const BeAnAgent = () => {
     // styles
@@ -24,6 +27,16 @@ const BeAnAgent = () => {
     // render form
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = (data) => {
+        const db = firebase.firestore();
+        db.collection('agents')
+            .add(data)
+            .then((res) => {
+                // eslint-disable-next-line prettier/prettier
+                alert("Registration Successful!");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         console.log(data);
         reset();
     };
@@ -44,6 +57,16 @@ const BeAnAgent = () => {
                     {errors.name && (
                         <small className="text-danger form-text">Please enter name</small>
                     )}
+                </Form.Group>
+                <Form.Group controlId="status" style={{ display: 'none' }}>
+                    <Form.Label>Application Status</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="status"
+                        value="pending"
+                        placeholder="status"
+                        ref={register({ required: true })}
+                    />
                 </Form.Group>
 
                 <Form.Group controlId="email">
